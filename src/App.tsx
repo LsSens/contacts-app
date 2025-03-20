@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React from "react";
+import AddContact from "./components/AddContact";
+import ContactList from "./components/ContactList";
+import GlobalStyle from "./styles/GlobalStyle";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div>
+        <h1>Contact Manager</h1>
+        <GlobalStyle />
+        <AddContact />
+        <ContactList />
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
