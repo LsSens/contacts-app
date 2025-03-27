@@ -2,6 +2,7 @@ import {
   ADD_CONTACT,
   REMOVE_CONTACT,
   EDIT_CONTACT,
+  SET_EDITING_CONTACT,
 } from "../actions/contactActions";
 
 interface Contact {
@@ -38,6 +39,11 @@ const contactReducer = (state = initialState, action: any) => {
             ? { ...contact, ...action.payload }
             : contact
         ),
+      };
+    case SET_EDITING_CONTACT:
+      return {
+        ...state,
+        editingContactId: action.payload,
       };
     default:
       return state;
